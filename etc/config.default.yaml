@@ -1,0 +1,38 @@
+
+#必填
+name: bmw
+
+#必填，应用版本号
+version: 1.1.0
+
+#选填，默认为honeycomb提供的favicon
+favicon: ./favicon.ico
+
+#选填，控制启动几个进程来绑定该应用，默认为 1
+process_num: 1
+
+port: 9000
+
+runner: hc-cover-runner
+
+# 必填，设定应用的middleware
+extensions:
+  #自定义middleware的位置用户自己控制，容器获取带./的就是自定义middleware
+  '/ > body-parser.urlencoded':
+  '/ > body-parser.json':
+  '/ > ./lib/error-hander':
+  '/ > ./lib/init':
+    database:
+      host : '47.88.2.147'
+      port : '3306'
+      user : pon
+      password : hello1234
+      database : CAR
+  '/google > lib/controller/google':
+  '/ > ./lib/controller/vin':
+    challenge: 'http://www.google.com/recaptcha/api/challenge?k=6Ldlev8SAAAAAF4fPVvI5c4IPSfhuDZp6_HR-APV'
+    domian: 'http://bmwvin.chegai.club'
+    __routers:
+    '/vin       > post' : 'getVin'
+    '/cache     > post' : 'getCache'
+    '/challenge > get'  : 'getChallenge'

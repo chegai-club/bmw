@@ -1,0 +1,26 @@
+{
+  "name": "bmw_new",
+  "main": "",
+  "version": "1.0.0",
+  "dependencies": {
+  },
+  "devDependencies": {
+    "thunkify"        : "*",
+    "request"         : "*",
+    "coffee-script"   : "*",
+    "middleware-cube" : "*",
+    "body-parser"     : "*",
+    "cheerio"         : "*",
+    "co"              : "*",
+    "options-stream"  : "*",
+    "mysql"           : "*",
+    "event-pipe"      : "*",
+    "response-patch"  : "*"
+  },
+  "engines": {
+    "node":  ">=0.12.0"
+  },
+  "scripts": {
+    "test": "make test"
+  }
+}
